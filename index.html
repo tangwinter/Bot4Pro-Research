@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot4Pro Research</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #F7F7F8;
+            color: #111827;
+            overflow-x: hidden;
+        }
+
+        .page-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Logo Section */
+        .header-section {
+            text-align: center;
+            padding: 20px 0 10px;
+        }
+
+        .logo-main {
+            max-width: 320px;
+            height: auto;
+            margin: 0 auto 16px;
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-row img {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .logo-placeholder {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #888;
+            background: #fff;
+        }
+
+        /* Banner Carousel - Full Width */
+        .banner-section {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            overflow: hidden;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            height: 460px;
+        }
+
+        .banner-carousel img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: auto;
+            min-width: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .banner-carousel img.active {
+            opacity: 1;
+        }
+
+        /* Cards Section */
+        .cards-section {
+            padding: 40px 0;
+        }
+
+        .cards-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .cards-title img {
+            max-height: 40px;
+            width: auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .card-link {
+            color: #6A0809;
+            text-decoration: underline;
+        }
+
+        .card-link:hover {
+            color: #8B0A0C;
+        }
+
+        /* Expert Network Section */
+        .expert-section {
+            text-align: center;
+            padding: 30px 0 20px;
+        }
+
+        .expert-heading {
+            font-size: 16px;
+            font-weight: 700;
+            color: #E6E6E6;
+            margin-bottom: 8px;
+        }
+
+        .expert-subtext {
+            font-size: 16px;
+            color: #E6E6E6;
+            margin-bottom: 30px;
+        }
+
+        .pioneer-heading {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .pioneer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .pioneer-logos img {
+            max-height: 50px;
+            width: auto;
+        }
+
+        /* CTA Buttons */
+        .cta-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px 0 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            min-width: 280px;
+            padding: 12px 24px;
+            background-color: #6A0809;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 16px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            line-height: 1.5;
+        }
+
+        .cta-btn:hover {
+            background-color: #8B0A0C;
+            transform: translateY(-1px);
+        }
+
+        /* Video Section */
+        .video-section {
+            text-align: center;
+            padding: 20px 0 40px;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0 40px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer-small {
+            font-size: 12px;
+            color: #737373;
+            margin-top: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-title {
+                font-size: 18px;
+            }
+
+            .cta-btn {
+                min-width: 240px;
+                font-size: 11px;
+            }
+
+            .logo-main {
+                max-width: 240px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section {
+                padding: 40px 0 30px;
+            }
+
+            .banner-section {
+                height: auto;
+            }
+
+            .cta-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                min-width: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <!-- Header / Logo Section -->
+        <section class="header-section">
+            <img src="logo_transparent.png" alt="Bot4Pro Research Logo" class="logo-main">
+            <p class="subtitle">An AI-powered tool developed and offered by</p>
+            <div class="logo-row">
+                <img src="B4Pword.png" alt="Bot4Pro AI+ Domain Expertise" style="max-height: 55px;">
+                <img src="cyberport_transparent.png" alt="Cyberport" style="max-height: 55px;">
+            </div>
+        </section>
+
+        <!-- Animated Banner Section -->
+        <section class="banner-section">
+            <div class="banner-carousel" id="bannerCarousel">
+                <img src="Banner (1).jpeg" alt="Banner 1" class="active">
+                <img src="Banner (2).jpeg" alt="Banner 2">
+                <img src="Banner (3).jpeg" alt="Banner 3">
+                <img src="Banner (4).jpeg" alt="Banner 4">
+            </div>
+        </section>
+
+        <!-- Cards Section -->
+        <section class="cards-section">
+            <h2 class="cards-title">
+                <img src="B4P Globe.jpeg" alt="B4P Globe">
+                AI Agent for Professional Work
+            </h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-title">Tailored for Hong Kong Professionals</div>
+                    <div class="card-text">Led by our founder, a former partner at a leading global law firm, we design AI-powered tools to assist local professionals.</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Instant Internet Research</div>
+                    <div class="card-text">Rapidly gather, summarize, and analyze professional information on the public domain, market trends, and legal or regulatory updates, helping you respond to clients' "AI" enquiries with ease.</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">No Upfront Cost</div>
+                    <div class="card-text">Ready to use. No hardware costs, no development time, and no ongoing IT upkeep required.</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Zero Local File Access</div>
+                    <div class="card-text">The agent is entirely cloud-based and it can only access files you choose to upload, but not any other files on your local computer.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/FZVxxil-hcI?autoplay=0&controls=1&showinfo=0&modestbranding=1&rel=0"
+                    title="Bot4Pro Research At a Glance" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Expert Network Section -->
+        <section class="expert-section">
+
+        </section>
+
+        <!-- CTA Buttons -->
+        <section class="cta-section">
+            <a href="register.html" class="cta-btn">JOIN OUR NETWORK 加入我們的專業社群</a>
+            <a href="login.html" class="cta-btn">LOGIN 登入</a>
+        </section>
+
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">&copy;2025 Bot4Pro Ltd. All rights reserved.</p>
+            <p class="footer-small">&copy; Bot4Pro Limited 2025</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Banner auto-flip every 0.8 seconds
+        const bannerImages = document.querySelectorAll('#bannerCarousel img');
+        let currentBanner = 0;
+        setInterval(function() {
+            bannerImages[currentBanner].classList.remove('active');
+            currentBanner = (currentBanner + 1) % bannerImages.length;
+            bannerImages[currentBanner].classList.add('active');
+        }, 2500);
+    </script>
+</body>
+</html>

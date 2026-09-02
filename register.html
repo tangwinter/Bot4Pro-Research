@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot4Pro Research - Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #F7F7F8;
+            min-height: 100vh;
+        }
+
+        .register-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        .logo {
+            display: block;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 24px;
+            object-fit: contain;
+        }
+
+        .register-form {
+            width: 100%;
+            max-width: 486px;
+            margin: 0 auto;
+        }
+
+        .form-field {
+            margin-bottom: 16px;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.87);
+            font-family: Roboto, Helvetica, Arial, sans-serif;
+            margin-bottom: 4px;
+        }
+
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            padding: 16.5px 14px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            border: 1px solid rgba(0, 0, 0, 0.23);
+            border-radius: 4px;
+            background: transparent;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus {
+            border-color: #8B0000;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .password-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .password-row .form-field {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            max-width: 486px;
+            height: 50px;
+            padding: 12px 22px;
+            background-color: #8B0000;
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: 500;
+            font-family: Roboto, Helvetica, Arial, sans-serif;
+            letter-spacing: 0.43px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            margin: 24px auto 16px;
+            display: block;
+            box-shadow: 0 3px 5px -1px rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12);
+            transition: background-color 0.25s, box-shadow 0.25s;
+        }
+
+        .submit-btn:hover {
+            background-color: #6A0809;
+            box-shadow: 0 5px 5px -3px rgba(0,0,0,0.2), 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .back-link a {
+            color: #8B0000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .register-container {
+                padding: 16px;
+            }
+
+            .password-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <img src="logo_transparent.png" alt="Bot4Pro Research Logo" class="logo">
+
+        <form class="register-form" onsubmit="return false;">
+            <div class="form-field">
+                <label>Business Email *</label>
+                <input type="email" required>
+            </div>
+
+            <div class="form-field">
+                <label>First Name *</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-field">
+                <label>Last Name *</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-field">
+                <label>Title *</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-field">
+                <label>Firm/Company *</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-field">
+                <label>Your area of expertise *</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-field">
+                <label>Years of experience *</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-field">
+                <label>What task(s) would you like AI to help with the most?</label>
+                <textarea rows="4"></textarea>
+            </div>
+
+            <div class="password-row">
+                <div class="form-field">
+                    <label>Create your password *</label>
+                    <input type="password" required>
+                </div>
+                <div class="form-field">
+                    <label>Reconfirm password *</label>
+                    <input type="password" required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">SUBMIT</button>
+        </form>
+
+        <div class="back-link">
+            <a href="login.html">Already have an account? Login here</a>
+        </div>
+    </div>
+</body>
+</html>

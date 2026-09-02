@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot4Pro Research - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #F0F2F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .login-card {
+            width: 400px;
+            padding: 40px;
+            background: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: block;
+            max-width: 200px;
+            height: auto;
+            margin: 0 auto 32px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 320px;
+            margin: 0 auto;
+        }
+
+        .form-input {
+            width: 320px;
+            height: 44px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            background: #FFFFFF;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            border-color: #8B0000;
+        }
+
+        .form-input::placeholder {
+            color: #999;
+        }
+
+        .password-wrapper {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            width: 320px;
+            height: 44px;
+            background: #FFFFFF;
+            transition: border-color 0.2s;
+        }
+
+        .password-wrapper:focus-within {
+            border-color: #8B0000;
+        }
+
+        .password-wrapper input {
+            flex: 1;
+            height: 42px;
+            padding: 12px 40px 12px 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background: transparent;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            outline: none;
+        }
+
+        .password-toggle {
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 18px;
+        }
+
+        .options-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 320px;
+            margin: 0 auto 10px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 13px;
+            height: 13px;
+            cursor: pointer;
+        }
+
+        .remember-me label {
+            font-size: 12.6px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .forgot-link {
+            font-size: 12.6px;
+            color: #8B0000;
+            text-decoration: none;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            width: 320px;
+            height: 49px;
+            padding: 14px;
+            background-color: #8B0000;
+            color: #FFFFFF;
+            font-size: 17.6px;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #6A0809;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 320px;
+            margin: 24px auto;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #DDDDDD;
+        }
+
+        .divider span {
+            font-size: 14px;
+            color: #AAAAAA;
+        }
+
+        .join-btn {
+            width: 320px;
+            height: 51px;
+            padding: 14px;
+            background-color: #FFFFFF;
+            color: #8B0000;
+            font-size: 17.6px;
+            font-weight: 400;
+            font-family: Arial, sans-serif;
+            border: 1px solid #8B0000;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            transition: background-color 0.3s;
+        }
+
+        .join-btn:hover {
+            background-color: #FFF5F5;
+        }
+
+        .language-links {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 14.4px;
+        }
+
+        .language-links a {
+            color: #555;
+            text-decoration: none;
+            font-size: 14.4px;
+        }
+
+        .language-links a:hover {
+            text-decoration: underline;
+        }
+
+        .language-links .separator {
+            color: #555;
+            margin: 0 4px;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                width: 90%;
+                padding: 24px;
+            }
+
+            .form-group,
+            .form-input,
+            .password-wrapper,
+            .options-row,
+            .login-btn,
+            .join-btn,
+            .divider {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <img src="logo_transparent.png" alt="Bot4Pro Research Logo" class="logo">
+
+        <form class="form-group" onsubmit="return false;">
+            <input type="email" class="form-input" placeholder="Email Address *" required>
+            <div class="password-wrapper">
+                <input type="password" placeholder="Password *" required id="passwordInput">
+                <button type="button" class="password-toggle" onclick="togglePassword()">&#128065;</button>
+            </div>
+        </form>
+
+        <div class="options-row">
+            <div class="remember-me">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button class="login-btn" style="margin: 0 auto; display: block;">Login</button>
+
+        <div class="divider"><span>or</span></div>
+
+        <a href="register.html" class="join-btn">Join our network</a>
+
+        <div class="language-links">
+            <a href="#">English</a>
+            <span class="separator">|</span>
+            <a href="#">&#32321;&#39636;&#20013;&#25991;</a>
+            <span class="separator">|</span>
+            <a href="#">&#31616;&#20307;&#20013;&#25991;</a>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const input = document.getElementById('passwordInput');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>
